@@ -2,7 +2,8 @@
   "variables": {
     "aws_access_key": "",
     "aws_secret_key": "",
-    "source_ami_id": "ami-9ff7e8af"
+    "source_ami_id": "ami-9ff7e8af",
+    "user_data_file_path": "."
   },
   "builders": [{
     "type": "amazon-ebs",
@@ -14,6 +15,6 @@
     "ssh_username": "ec2-user",
     "ami_name": "php-cli-base {{timestamp}}",
     "ami_description": "Base machine with php cli, aws cloudwatch logs agent",
-    "user_data_file": "./user_data.sh"
+    "user_data_file": "{{user `user_data_file_path`}}"
   }]
 }
