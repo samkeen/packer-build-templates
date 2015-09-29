@@ -16,5 +16,16 @@
     "ami_name": "php-cli-base {{timestamp}}",
     "ami_description": "Base machine with php cli, aws cloudwatch logs agent",
     "user_data_file": "{{user `user_data_file_path`}}"
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "inline": [
+      "sleep 30",
+      "sudo yum update -y",
+      "sudo yum install -y php55-cli awslogs",
+      "sudo mkdir -p /var/awslogs/state",
+      "sudo service awslogs start",
+      "sudo chkconfig awslogs on"
+    ]
   }]
 }
