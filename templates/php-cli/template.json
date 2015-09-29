@@ -14,8 +14,7 @@
     "instance_type": "t2.micro",
     "ssh_username": "ec2-user",
     "ami_name": "php-cli-base {{timestamp}}",
-    "ami_description": "Base machine with php cli, aws cloudwatch logs agent",
-    "user_data_file": "{{user `user_data_file_path`}}"
+    "ami_description": "Base machine with php cli, aws cloudwatch logs agent"
   }],
   "provisioners": [{
     "type": "shell",
