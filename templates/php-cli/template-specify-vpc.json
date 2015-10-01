@@ -2,7 +2,9 @@
   "variables": {
     "aws_access_key": "",
     "aws_secret_key": "",
-    "source_ami_id": "ami-9ff7e8af"
+    "source_ami_id": "ami-9ff7e8af",
+    "vpc_id": "",
+    "subnet_id": ""
   },
   "builders": [{
     "type": "amazon-ebs",
@@ -10,6 +12,8 @@
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
     "region": "us-west-2",
+    "vpc_id": "{{user `vpc_id`}}",
+    "subnet_id": "{{user `subnet_id`}}",
     "source_ami": "{{user `source_ami_id`}}",
     "instance_type": "t2.micro",
     "ssh_username": "ec2-user",
